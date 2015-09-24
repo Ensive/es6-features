@@ -38,9 +38,7 @@ const lintOptions = {
 };
 
 const testLintOptions = {
-  env: {
-    mocha: true
-  }
+  useEslintrc: true
 };
 
 gulp.task('lint', lint('app/scripts/**/*.js', lintOptions));
@@ -138,7 +136,8 @@ gulp.task('serve:test', () => {
     server: {
       baseDir: 'test',
       routes: {
-        '/bower_components': 'bower_components'
+        '/bower_components': 'bower_components',
+        '/app': 'app'
       }
     }
   });

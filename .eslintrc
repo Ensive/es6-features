@@ -8,6 +8,12 @@
     "destructuring": true
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "mocha": true,
+    "phantomjs": true,
+    "es6": true
+  },
+  "globals": {
+    "expect": true
   }
 }
