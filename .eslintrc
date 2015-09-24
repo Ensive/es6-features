@@ -4,8 +4,19 @@
     "arrowFunctions": true,
     "binaryLiterals": true,
     "blockBindings": true,
+    "classes": true,
     "defaultParams": true,
-    "destructuring": true
+    "destructuring": true,
+    "forOf": true,
+    "generators": true,
+    "modules": true,
+    "objectLiteralComputedProperties": true,
+    "objectLiteralDuplicateProperties": true,
+    "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
+    "octalLiterals": true,
+    "spread": true,
+    "experimentalObjectRestSpread": true
   },
   "env": {
     "browser": true,

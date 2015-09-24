@@ -51,7 +51,7 @@ gulp.task('html', ['styles'], () => {
     .pipe(assets)
     .pipe($.if('*.js', $.sourcemaps.init()))
     .pipe($.if('*.js', $.babel()))
-    .pipe($.if('*.js', $.uglify()))
+    //.pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
     .pipe(assets.restore())
     .pipe($.useref())
@@ -96,6 +96,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'fonts'], () => {
   browserSync({
+    browser: 'firefox',
     notify: false,
     port: 9000,
     server: {
@@ -130,6 +131,7 @@ gulp.task('serve:dist', () => {
 
 gulp.task('serve:test', () => {
   browserSync({
+    browser: 'firefox',
     notify: false,
     port: 9000,
     ui: false,
