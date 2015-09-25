@@ -1,5 +1,4 @@
 {
-  "parser": "babel-eslint",
   "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": true,
@@ -19,12 +18,14 @@
     "experimentalObjectRestSpread": true
   },
   "env": {
+    "es6": true,
     "browser": true,
-    "mocha": true,
-    "phantomjs": true,
-    "es6": true
+    "mocha": true
   },
   "globals": {
     "expect": true
+  },
+  "rules": {
+    "no-unused-vars": [0, {"vars": "all", "args": "after-used"}]
   }
 }
