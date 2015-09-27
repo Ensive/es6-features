@@ -23,6 +23,12 @@ gulp.task('styles', () => {
     .pipe(reload({stream: true}));
 });
 
+gulp.task('scripts', () => {
+  return gulp.src('app/scripts/**/*.js')
+    .pipe($.babel())
+    .pipe(gulp.dest('.tmp/scripts'));
+});
+
 function lint(files, options) {
   return () => {
     return gulp.src(files)
@@ -44,7 +50,7 @@ const testLintOptions = {
 gulp.task('lint', lint('app/scripts/**/*.js', lintOptions));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
-gulp.task('html', ['styles'], () => {
+gulp.task('html', ['scripts', 'styles'], () => {
   const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
   return gulp.src('app/*.html')
@@ -94,15 +100,16 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve', ['styles', 'fonts'], () => {
+gulp.task('serve', ['scripts', 'styles', 'fonts'], () => {
   browserSync({
-    browser: 'firefox',
+    //browser: 'firefox',
     notify: false,
     port: 9000,
     server: {
       baseDir: ['.tmp', 'app'],
       routes: {
-        '/bower_components': 'bower_components'
+        '/bower_components': 'bower_components',
+        '/app': 'app'
       }
     }
   });
@@ -110,11 +117,13 @@ gulp.task('serve', ['styles', 'fonts'], () => {
   gulp.watch([
     'app/*.html',
     'app/scripts/**/*.js',
+    '.tmp/scripts/**/*.js',
     'app/images/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch('app/scripts/**/*.js', ['scripts'], reload);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
@@ -131,7 +140,7 @@ gulp.task('serve:dist', () => {
 
 gulp.task('serve:test', () => {
   browserSync({
-    browser: 'firefox',
+    //browser: 'firefox',
     notify: false,
     port: 9000,
     ui: false,
@@ -139,7 +148,8 @@ gulp.task('serve:test', () => {
       baseDir: 'test',
       routes: {
         '/bower_components': 'bower_components',
-        '/app': 'app'
+        '/app': 'app',
+        '/.tmp': '.tmp'
       }
     }
   });

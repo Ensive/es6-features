@@ -132,4 +132,4 @@
   exports.doTemplateLiterals = doTemplateLiterals;
   exports.upper = upper;
 
-})(this);
+})(window);

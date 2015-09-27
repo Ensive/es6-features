@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Alexey",
+    "surname": "Petraschuk",
+    "city": "Chernovtsi",
+    "isBrideSide": false
+  },
+  {
+    "name": "Yuliya",
+    "surname": "Vorona",
+    "city": "Poltava",
+    "isBrideSide": true
+  }
+]
