@@ -3,9 +3,38 @@
 ((exports) => {
 
   class Employee {
+
+    constructor (name) {
+      this.name = name;
+      this._isNameTouched = false;
+    }
+
+    get name() {
+      console.info('Reading "name" property...');
+      return this._name.toUpperCase();
+    }
+
+    set name(newValue) {
+      console.info('Writing to the "name" property...');
+
+      if (newValue && this._name !== newValue) {
+        this._name = newValue;
+        this._isNameTouched = true;
+      } else {
+        return false;
+      }
+
+    }
+
+    //set name
+
     doWork() {
       return 'complete!';
-    };
+    }
+
+    getName() {
+      return this._name;
+    }
   }
 
   class Guest {
@@ -31,10 +60,13 @@
 
   }
 
-  var guest = new Guest();
-  var employee = new Employee();
+  let guest = new Guest();
+  let employee = new Employee('Anton');
+
+  let name = employee.name;
 
   // exporting
+  exports.Employee = Employee;
   exports.employee = employee;
   exports.guest = guest;
 
