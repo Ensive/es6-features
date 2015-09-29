@@ -26,6 +26,7 @@
     "expect": true
   },
   "rules": {
-    "no-unused-vars": [0, {"vars": "all", "args": "after-used"}]
+    "no-unused-vars": [0, {"vars": "all", "args": "after-used"}],
+    "no-underscore-dangle": false
   }
 }

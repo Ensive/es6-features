@@ -1,4 +1,4 @@
-/* global employee, guest */
+/* global employee, guest, Employee, Car */
 'use strict';
 
 (function () {
@@ -43,6 +43,24 @@
       employee.name = 'John';
       expect(employee.name).to.equal('JOHN');
       expect(employee._isNameTouched).to.equal(true);
+
+    });
+
+    it('should support inheritance', () => {
+      var bmw = new Car('car', 'BMW', 4, 'red', 343);
+      expect(bmw._brand).to.equal('BMW');
+      expect(bmw._wheels).to.equal(4);
+
+      bmw.setEngine(6, 3.2, 'S54B32');
+      expect(bmw.engine instanceof Object).to.equal(true);
+
+      var bmwEngine = bmw.engine;
+      expect(bmwEngine.cylinders).to.equal(6);
+      expect(bmwEngine.litres).to.equal(3.2);
+      expect(bmw.hp).to.equal(343);
+    });
+
+    it('should use a "super" keyword', () => {
 
     });
 
