@@ -57,7 +57,7 @@ gulp.task('html', ['scripts', 'styles'], () => {
     .pipe(assets)
     .pipe($.if('*.js', $.sourcemaps.init()))
     .pipe($.if('*.js', $.babel()))
-    //.pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
     .pipe(assets.restore())
     .pipe($.useref())
@@ -102,7 +102,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['scripts', 'styles', 'fonts'], () => {
   browserSync({
-    //browser: 'firefox',
+    browser: 'google chrome',
     notify: false,
     port: 9000,
     server: {
@@ -123,7 +123,7 @@ gulp.task('serve', ['scripts', 'styles', 'fonts'], () => {
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/scripts/**/*.js', ['scripts'], reload);
+  gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
@@ -140,7 +140,7 @@ gulp.task('serve:dist', () => {
 
 gulp.task('serve:test', () => {
   browserSync({
-    //browser: 'firefox',
+    browser: 'firefox',
     notify: false,
     port: 9000,
     ui: false,
