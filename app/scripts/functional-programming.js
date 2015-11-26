@@ -4,7 +4,7 @@
 
   let add = (x, y) => x + y;
 
-  function nameSpace(str, obj) {
+  function buildNamespace(str, obj) {
     let keys = str.split('.');
     let namespace = window;
 
@@ -42,9 +42,14 @@
     return operations === 0 ? sortedArray : sortArray(sortedArray);
   }
 
+  function processArray(arr, callback) {
+    return arr.map(callback);
+  }
+
   // exporting
-  exports.nameSpace = nameSpace;
+  exports.buildNamespace = buildNamespace;
   exports.sortArray = sortArray;
   exports.add = add;
+  exports.processArray = processArray;
 
 })(window);
