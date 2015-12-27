@@ -49,7 +49,12 @@
         return item * 2;
       });
 
+      var newArr = processArray(myArray, function (item) {
+        return item - 3;
+      });
+
       expect(myArray).to.be.eql([4, 6, 14]);
+      expect(newArr).to.be.eql([1, 3, 11]);
     });
   });
 
