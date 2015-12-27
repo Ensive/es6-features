@@ -102,7 +102,6 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['scripts', 'styles', 'fonts'], () => {
   browserSync({
-    browser: 'google chrome',
     notify: false,
     port: 9000,
     server: {
@@ -140,7 +139,6 @@ gulp.task('serve:dist', () => {
 
 gulp.task('serve:test', () => {
   browserSync({
-    browser: 'firefox',
     notify: false,
     port: 9000,
     ui: false,
