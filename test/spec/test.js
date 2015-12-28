@@ -1,4 +1,4 @@
-/* global doWork, doJob, loadProfiles, namedParameters, swapping, defParameters, restParameters, displayTags doSpread, doTemplateLiterals, upper */
+/* global doWork, doJob, loadProfiles, namedParameters, swapping, defParameters, restParameters, displayTags doSpread, spreadValues, doTemplateLiterals, upper */
 'use strict';
 
 (function () {
@@ -100,11 +100,21 @@
   describe('doSpread function', () => {
     it('should spread parameters from array', () => {
       var result = doSpread(...['Anton ', 'Goncharuk', ' - Software Developer']);
+      var anotherResult = doSpread(...[1, 2, 3]);
+
       expect(result).to.equal('Anton Goncharuk - Software Developer');
+      expect(anotherResult).to.equal(6);
     });
 
     it('can build arrays', () => {
 
+    });
+  });
+
+  describe('spreadValues function', function () {
+    it('should spread the values', function () {
+      var result = spreadValues(...['Anton', 'magic', 'hello@world.com']);
+      expect(result).to.be.equal('hello@world.com');
     });
   });
 

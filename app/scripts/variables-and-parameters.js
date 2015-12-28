@@ -126,6 +126,10 @@
     return x + y + z;
   };
 
+  let spreadValues = (name, pass, email) => {
+    return email;
+  };
+
   let doTemplateLiterals = () => {
     let category = 'software';
     let id = '23';
@@ -156,6 +160,7 @@
   exports.restParameters = restParameters;
   exports.displayTags = displayTags;
   exports.doSpread = doSpread;
+  exports.spreadValues = spreadValues;
   exports.doTemplateLiterals = doTemplateLiterals;
   exports.upper = upper;
 
