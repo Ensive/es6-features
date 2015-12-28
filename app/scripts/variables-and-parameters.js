@@ -112,6 +112,16 @@
     return result;
   };
 
+  let displayTags = (...tags) => {
+    var allTags = [];
+
+    for (let i in tags) {
+      allTags.push(tags[i]);
+    }
+
+    return allTags;
+  };
+
   let doSpread = (x, y, z) => {
     return x + y + z;
   };
@@ -144,6 +154,7 @@
   exports.swapping = swapping;
   exports.defParameters = defParameters;
   exports.restParameters = restParameters;
+  exports.displayTags = displayTags;
   exports.doSpread = doSpread;
   exports.doTemplateLiterals = doTemplateLiterals;
   exports.upper = upper;

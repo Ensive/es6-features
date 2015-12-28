@@ -1,4 +1,4 @@
-/* global doWork, doJob, loadProfiles, namedParameters, swapping, defParameters, restParameters, doSpread, doTemplateLiterals, upper */
+/* global doWork, doJob, loadProfiles, namedParameters, swapping, defParameters, restParameters, displayTags doSpread, doTemplateLiterals, upper */
 'use strict';
 
 (function () {
@@ -82,6 +82,18 @@
     it('is like varargs', () => {
       var result = restParameters('Anton', 1, 2, 4);
       expect(result).to.equal(7);
+    });
+  });
+
+  describe('displayTags', function () {
+    it('should return full list of tags regardless the amount of params', function () {
+      var result = displayTags('sport', 'animals', 'programming');
+      var newResult = displayTags('hello', 'world', 'bad');
+      var anotherResult = displayTags();
+
+      expect(result).to.be.eql(['sport', 'animals', 'programming']);
+      expect(anotherResult).to.be.eql([]);
+      expect(newResult).to.be.eql(['hello', 'world', 'bad']);
     });
   });
 
