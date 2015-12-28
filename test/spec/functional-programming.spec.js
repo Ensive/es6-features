@@ -1,7 +1,30 @@
-/* global buildNamespace, sortArray, add, processArray */
+/* global Person, buildNamespace, sortArray, add, processArray */
 'use strict';
 
 (function () {
+
+  describe('Person constructor function', function () {
+    var alex = new Person('Alex', 'Petraschuk');
+
+    it('should create and instance of Person', function () {
+      expect(alex.name).to.be.equal('Alex');
+      expect(alex.surname).to.be.equal('Petraschuk');
+      expect(alex).to.be.instanceOf(Person);
+    });
+
+    it('should call a function on a prototype and return expected result', function () {
+      // test a usage of the arrow functions
+
+      let magicMethod = alex.saySomething('hello world', function () {
+        console.log('End of the record.');
+        return 1;
+      });
+
+      expect(alex.saySomething).to.be.a('function');
+      expect(alex.saySomething()).to.be.a('function');
+      expect(magicMethod()).to.be.a('number');
+    });
+  });
 
   describe('add function', () => {
     it('should add two numbers', () => {

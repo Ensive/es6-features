@@ -4,6 +4,19 @@
 
   let add = (x, y) => x + y;
 
+  function Person(name, surname) {
+    this.name = name || 'Unnamed';
+    this.surname = surname || '';
+  }
+
+  Person.prototype.saySomething = function (message, callback) {
+    // use arrow function for correct lexical binding
+    return () => {
+      console.log(`${this.name} says: ${message}`);
+      return callback();
+    };
+  };
+
   function buildNamespace(str, obj) {
     let keys = str.split('.');
     let namespace = window;
@@ -47,6 +60,7 @@
   }
 
   // exporting
+  exports.Person = Person;
   exports.buildNamespace = buildNamespace;
   exports.sortArray = sortArray;
   exports.add = add;
