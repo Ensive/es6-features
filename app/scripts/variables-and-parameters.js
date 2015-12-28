@@ -24,6 +24,22 @@
     return y;
   };
 
+  let loadProfiles = (userNames = []) => {
+    return userNames.length;
+  };
+
+  let namedParameters = (name, { popular, expires, activeClass } = {}) => {
+    popular = popular || 'hello world';
+    expires = expires || '2015-12-31';
+
+    return {
+      name: name,
+      popular: popular,
+      expires: expires,
+      activeClass: activeClass
+    }
+  };
+
   let swapping = () => {
 
     let func = () => [1, 3, 2];
@@ -104,9 +120,7 @@
     let category = 'software';
     let id = '23';
 
-    let url = `http://google.com/${category}/${id}`;
-
-    return url;
+    return `http://google.com/${category}/${id}`;
   };
 
   let upper = (strings, ...values) => {
@@ -125,6 +139,8 @@
   // exporting
   exports.doWork = doWork;
   exports.doJob = doJob;
+  exports.loadProfiles = loadProfiles;
+  exports.namedParameters = namedParameters;
   exports.swapping = swapping;
   exports.defParameters = defParameters;
   exports.restParameters = restParameters;

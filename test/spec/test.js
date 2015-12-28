@@ -1,4 +1,4 @@
-/* global doWork, doJob, swapping, defParameters, restParameters, doSpread, doTemplateLiterals, upper */
+/* global doWork, doJob, loadProfiles, namedParameters, swapping, defParameters, restParameters, doSpread, doTemplateLiterals, upper */
 'use strict';
 
 (function () {
@@ -20,7 +20,37 @@
       var result = doJob();
       expect(result).to.equal(10);
     });
+  });
 
+  describe('loadProfiles function', function () {
+    it('should return correct length with given data', () => {
+      var result = loadProfiles(['Anton', 'Alex', 'Andrew']);
+      expect(result).to.equal(3);
+    });
+
+    it('should return length 0 if there is no passed arguments', function () {
+      var result = loadProfiles();
+      expect(result).to.equal(0);
+    });
+  });
+
+  describe('namedParameters function', function () {
+    it('should return correct values', function () {
+      var result = namedParameters('New Version out Soon!', { popular: true });
+
+      expect(result.name).to.equal('New Version out Soon!');
+      expect(result.popular).to.equal(true);
+      expect(result.activeClass).to.be.a('undefined');
+    });
+
+    it('should return values if no arguments is passed and do not throw error', function () {
+      var result = namedParameters('Another name');
+
+      expect(result.name).to.equal('Another name');
+      expect(result.popular).to.equal('hello world');
+      expect(result.activeClass).to.be.a('undefined');
+      expect(result.expires).to.equal ('2015-12-31');
+    });
   });
 
   describe('destructuring', () => {
