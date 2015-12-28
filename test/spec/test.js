@@ -49,7 +49,7 @@
       expect(result.name).to.equal('Another name');
       expect(result.popular).to.equal('hello world');
       expect(result.activeClass).to.be.a('undefined');
-      expect(result.expires).to.equal ('2015-12-31');
+      expect(result.expires).to.equal('2015-12-31');
     });
   });
 
