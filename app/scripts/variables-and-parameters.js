@@ -37,7 +37,7 @@
       popular: popular,
       expires: expires,
       activeClass: activeClass
-    }
+    };
   };
 
   let swapping = () => {
