@@ -80,15 +80,15 @@
       } = getDevice();
 
     return {
-      x: x,
-      y: y,
-      z: z,
-      deviceName: deviceName,
-      deviceOS: deviceOS,
-      deviceDesignedBy: deviceDesignedBy,
-      deviceMadeIn: deviceMadeIn,
-      deviceWeight: deviceWeight,
-      result: result
+      x,
+      y,
+      z,
+      deviceName,
+      deviceOS,
+      deviceDesignedBy,
+      deviceMadeIn,
+      deviceWeight,
+      result
     };
 
   };
